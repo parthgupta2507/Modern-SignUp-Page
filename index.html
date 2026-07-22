@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome — Sign In / Sign Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="scene" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main class="stage">
+    <div class="card">
+
+
+      <div id="formsPanel">
+        <h1 class="heading" id="heading">Welcome back</h1>
+        <p class="subheading" id="subheading">Sign in to pick up right where you left off.</p>
+
+        <div class="tabs" role="tablist" aria-label="Choose sign in or sign up">
+          <div class="tab-indicator" id="tabIndicator"></div>
+          <button class="tab active" id="tabLogin" role="tab" aria-selected="true" aria-controls="loginForm">Sign In</button>
+          <button class="tab" id="tabSignup" role="tab" aria-selected="false" aria-controls="signupForm">Sign Up</button>
+        </div>
+
+        <div class="forms">
+          <!-- LOGIN -->
+          <form id="loginForm" novalidate>
+            <div class="field">
+              <label for="loginEmail">Email</label>
+              <div class="input-wrap">
+                <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email">
+              </div>
+              <div class="error-msg" id="loginEmailError">Enter a valid email address.</div>
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">Password</label>
+              <div class="input-wrap">
+                <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password">
+                <button type="button" class="toggle-visibility" data-target="loginPassword" aria-label="Show password">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <div class="error-msg" id="loginPasswordError">Password is required.</div>
+            </div>
+
+            <div class="row-between">
+              <label class="remember">
+                <input type="checkbox">
+                Remember me
+              </label>
+              <a href="#" class="link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="submit-btn" id="loginSubmit">
+              <span class="btn-label">Sign In</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+
+          <!-- SIGN UP -->
+          <form id="signupForm" novalidate hidden>
+            <div class="field">
+              <label for="signupName">Full name</label>
+              <div class="input-wrap">
+                <input type="text" id="signupName" placeholder="Jordan Lee" autocomplete="name">
+              </div>
+              <div class="error-msg" id="signupNameError">Tell us your name.</div>
+            </div>
+
+            <div class="field">
+              <label for="signupEmail">Email</label>
+              <div class="input-wrap">
+                <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email">
+              </div>
+              <div class="error-msg" id="signupEmailError">Enter a valid email address.</div>
+            </div>
+
+            <div class="field">
+              <label for="signupPassword">Password</label>
+              <div class="input-wrap">
+                <input type="password" id="signupPassword" placeholder="Create a password" autocomplete="new-password">
+                <button type="button" class="toggle-visibility" data-target="signupPassword" aria-label="Show password">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <div class="strength" id="strengthBar">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="error-msg" id="signupPasswordError">Use at least 8 characters.</div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="signupSubmit">
+              <span class="btn-label">Create Account</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="divider">or continue with</div>
+        <div class="socials">
+          <button class="social-btn" type="button">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.35 11.1h-9.17v2.92h5.27c-.23 1.4-1.6 4.1-5.27 4.1-3.17 0-5.76-2.62-5.76-5.85s2.59-5.85 5.76-5.85c1.8 0 3.01.77 3.7 1.43l2.52-2.43C16.94 3.6 14.9 2.7 12.18 2.7 6.98 2.7 2.75 6.9 2.75 12.05s4.23 9.35 9.43 9.35c5.44 0 9.06-3.82 9.06-9.2 0-.62-.07-1.1-.16-1.6z"/></svg>
+            Google
+          </button>
+          <button class="social-btn" type="button">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 8.5V6.7c0-.9.6-1.1 1-1.1h2.3V2.1L13.5 2c-2.9 0-4.6 1.7-4.6 4.9v1.6H6.7v3.4h2.2V22h3.6v-10.1h2.7l.4-3.4h-3.1z"/></svg>
+            Facebook
+          </button>
+        </div>
+
+        <p class="switch-line" id="switchLine">
+          New here? <a href="#" class="link" id="switchToSignup">Create an account</a>
+        </p>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-panel" id="successPanel">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="success-title" id="successTitle">You're in</h2>
+        <p class="success-text" id="successText">This was a front-end demo, so nothing was actually sent anywhere — but that's exactly how the real flow would feel.</p>
+        <button class="ghost-btn" id="successReset">Back to the form</button>
+      </div>
+
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
